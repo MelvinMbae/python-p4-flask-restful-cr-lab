@@ -22,7 +22,10 @@ function PlantPage() {
   }
 
   const displayedPlants = plants.filter((plant) => {
-    return plant.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const plantName = plant.name || ''; // Handling undefined plant names
+    const term = searchTerm || ''; // Handling undefined searchTerm
+  
+    return plantName.toLowerCase().includes(term.toLowerCase());
   });
 
   return (
